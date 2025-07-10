@@ -1,3 +1,4 @@
+import '../index.css';
 export default function InvoiceDisplay({ invoices }) {
   if (!invoices || invoices.length === 0) {
     return <div className="text-gray-500 text-center py-8">No invoices to display.</div>;

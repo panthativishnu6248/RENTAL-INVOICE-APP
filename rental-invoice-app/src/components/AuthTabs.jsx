@@ -1,5 +1,5 @@
 import LoginForm from "./LoginForm";
-
+import '../index.css';
 export default function AuthTabs({ userType, setUserType, onLogin, loading, error }) {
   return (
     <div className="w-full">

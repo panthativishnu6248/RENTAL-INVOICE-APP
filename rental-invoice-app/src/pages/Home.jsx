@@ -3,7 +3,8 @@ import AuthTabs from "../components/AuthTabs";
 import InvoiceSearch from "../components/InvoiceSearch";
 import InvoiceDisplay from "../components/InvoiceDisplay";
 import { loginUser, fetchInvoices } from "../api";
-import '../App.css';
+// import '../App.css';
+import '../index.css';
 
 
 export default function Home() {

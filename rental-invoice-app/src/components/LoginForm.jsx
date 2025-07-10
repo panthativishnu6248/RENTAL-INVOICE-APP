@@ -1,5 +1,6 @@
 import { useState } from "react";
-import '../App.css';
+// import '../App.css';
+import '../index.css';
 
 export default function LoginForm({ userType, onLogin, loading, error }) {
   const [form, setForm] = useState({ username: "", password: "" });
@@ -11,7 +12,7 @@ export default function LoginForm({ userType, onLogin, loading, error }) {
     if (!form.username || !form.password) return;
     onLogin(form);
   };
-
+<div className="bg-red-500 text-white p-4">If this is red, Tailwind works!</div>
   return (
     <form onSubmit={handleSubmit} className="space-y-5 w-full">
       <input
@@ -31,6 +32,7 @@ export default function LoginForm({ userType, onLogin, loading, error }) {
         onChange={handleChange}
         className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
         required
+        
       />
       <button
         type="submit"
