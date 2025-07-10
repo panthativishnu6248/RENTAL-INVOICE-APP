@@ -2,15 +2,15 @@ import LoginForm from "./LoginForm";
 import '../index.css';
 export default function AuthTabs({ userType, setUserType, onLogin, loading, error }) {
   return (
-    <div className="w-full">
-      <div className="flex mb-6 bg-gray-100 rounded-lg shadow-inner overflow-hidden border border-gray-200">
+    <div className="mui-w-100">
+      <div className="mui-d-flex mui-mb-2 mui-card mui-card-content mui-align-center mui-justify-between" style={{ background: 'var(--mui-grey-100)', border: '1px solid var(--mui-grey-200)' }}>
         {["tenant", "owner"].map((type) => (
           <button
             key={type}
-            className={`flex-1 py-2 text-lg font-semibold transition-colors duration-200 focus:outline-none ${
+            className={`mui-btn mui-btn-text mui-flex-1 mui-py-2 mui-text-lg mui-font-semibold ${
               userType === type
-                ? "bg-indigo-600 text-white shadow"
-                : "text-gray-700 hover:bg-indigo-50"
+                ? "mui-btn-contained"
+                : "mui-text-secondary"
             }`}
             onClick={() => setUserType(type)}
             type="button"

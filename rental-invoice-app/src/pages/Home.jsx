@@ -40,14 +40,14 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-400 via-purple-300 to-pink-200">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 flex flex-col items-center animate-fade-in">
-        <div className="mb-6 text-center">
-          <div className="text-4xl mb-2">🏠</div>
-          <h1 className="text-2xl font-extrabold text-indigo-700 tracking-wide mb-1">Rent Invoice App</h1>
-          <p className="text-gray-500 text-sm">Login to view your rent invoices</p>
-        </div>
-        {!isLoggedIn ? (
+    !isLoggedIn ? (
+      <div className="mui-h-100 mui-d-flex mui-align-center mui-justify-center" style={{ minHeight: '100vh' }}>
+        <div className="mui-card card-bg mui-container mui-d-flex mui-flex-column mui-align-center mui-p-4" style={{ maxWidth: 480 }}>
+          <div className="mui-mb-2 mui-text-center">
+            <div className="mui-text-center" style={{ fontSize: '2rem', marginBottom: 8 }}>🏠</div>
+            <h1 className="mui-mb-1 mui-text-center mui-text-primary">Rent Invoice App</h1>
+            <p className="mui-text-secondary mui-text-center">Login to view your rent invoices</p>
+          </div>
           <AuthTabs
             userType={userType}
             setUserType={setUserType}
@@ -55,19 +55,29 @@ export default function Home() {
             loading={loading}
             error={error}
           />
-        ) : (
-          <>
-            <InvoiceSearch
-              searchParams={searchParams}
-              setSearchParams={setSearchParams}
-              onSearch={handleSearch}
-              loading={loading}
-            />
+        </div>
+      </div>
+    ) : (
+      <div style={{ minHeight: '100vh', width: '100vw', background: 'var(--mui-grey-50)' }}>
+        <div className="mui-container" style={{ paddingTop: 32, paddingLeft: 0, maxWidth: '100%' }}>
+          <div className="mui-d-flex mui-align-center" style={{ gap: 24 }}>
+            <div style={{ flex: 'none' }}>
+              <InvoiceSearch
+                searchParams={searchParams}
+                setSearchParams={setSearchParams}
+                onSearch={handleSearch}
+                loading={loading}
+              />
+            </div>
+            {error && <div className="mui-text-error mui-mt-1">{error}</div>}
+          </div>
+        </div>
+        {invoices && invoices.length > 0 && (
+          <div style={{ width: '100vw', minHeight: 'calc(100vh - 100px)', marginTop: 24 }}>
             <InvoiceDisplay invoices={invoices} />
-            {error && <div className="text-red-500 mt-2">{error}</div>}
-          </>
+          </div>
         )}
       </div>
-    </div>
+    )
   );
 } 

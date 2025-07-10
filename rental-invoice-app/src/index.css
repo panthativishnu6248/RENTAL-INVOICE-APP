@@ -503,3 +503,68 @@ p {
               0px 9px 46px 8px rgba(0,0,0,0.12);
   border-radius: 16px;
 }
+
+@media print {
+  body {
+    background: #fff !important;
+    background-image: none !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: unset !important;
+  }
+  .print-hidden, .mui-btn.print-hidden, form, .mui-container > .mui-d-flex, .mui-container > .mui-align-center, .mui-container > .mui-mb-2, .mui-container > .mui-mb-1 {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  .mui-card.card-bg {
+    box-shadow: none !important;
+    background: #fff !important;
+    color: #000 !important;
+    page-break-inside: avoid;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 900px !important;
+    border: 1px solid #e0e0e0 !important;
+  }
+  .mui-w-100, .mui-d-flex, .mui-flex-column, .mui-flex-row, .mui-align-center, .mui-justify-center, .mui-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .mui-mb-5, .mui-mb-4, .mui-mb-3, .mui-mb-2, .mui-mb-1, .mui-mt-5, .mui-mt-4, .mui-mt-3, .mui-mt-2, .mui-mt-1 {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+  }
+  .mui-p-5, .mui-p-4, .mui-p-3, .mui-p-2, .mui-p-1, .mui-py-5, .mui-py-4, .mui-py-3, .mui-py-2, .mui-py-1, .mui-px-5, .mui-px-4, .mui-px-3, .mui-px-2, .mui-px-1 {
+    padding: 0 !important;
+  }
+  .mui-text-secondary, .mui-text-primary {
+    color: #222 !important;
+  }
+  .mui-card-content, .mui-card-actions {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  /* Ensure tables and headings print with color */
+  table, th, td {
+    border-color: #e0e0e0 !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+  th {
+    background: #e3eafc !important;
+    color: #222 !important;
+  }
+  tr {
+    background: #fff !important;
+  }
+  tr:last-child, tr[style*='background: var(--mui-grey-50)'] {
+    background: #f5f5f5 !important;
+    font-weight: bold !important;
+  }
+}

@@ -15,12 +15,13 @@ export default function InvoiceSearch({ searchParams, setSearchParams, onSearch,
     onSearch(searchParams);
   };
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 mb-6 w-full items-center justify-center">
+    <form onSubmit={handleSubmit} className="mui-d-flex mui-flex-row mui-mb-2 mui-align-center mui-justify-center mui-w-100 mui-grid-container" style={{ gap: 16, maxWidth: 520 }}>
       <select
         name="month"
         value={searchParams.month}
         onChange={handleChange}
-        className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition flex-1 min-w-[120px]"
+        className="mui-input mui-grid-item"
+        style={{ minWidth: 160, fontWeight: 500, fontSize: '1.05rem' }}
         required
       >
         <option value="">Select Month</option>
@@ -32,7 +33,8 @@ export default function InvoiceSearch({ searchParams, setSearchParams, onSearch,
         name="year"
         value={searchParams.year}
         onChange={handleChange}
-        className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition flex-1 min-w-[100px]"
+        className="mui-input mui-grid-item"
+        style={{ minWidth: 120, fontWeight: 500, fontSize: '1.05rem' }}
         required
       >
         <option value="">Select Year</option>
@@ -42,7 +44,8 @@ export default function InvoiceSearch({ searchParams, setSearchParams, onSearch,
       </select>
       <button
         type="submit"
-        className="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-indigo-700 transition flex-1 md:flex-none min-w-[100px] disabled:opacity-60"
+        className="mui-btn mui-btn-contained mui-grid-item"
+        style={{ minWidth: 120, fontWeight: 600, fontSize: '1.05rem', padding: '10px 0' }}
         disabled={loading}
       >
         {loading ? "Searching..." : "Search"}
